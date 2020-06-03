@@ -14,32 +14,41 @@ namespace FeederTutorial.Model
 {
     public class Feed
     {
-        public string Url { get; set; }
-        public string Title { get; set; }
-        public string Link { get; set; }
-        public string Author { get; set; }
-        public string Description { get; set; }
-        public string Image { get; set; }
+        public string url { get; set; }
+        public string title { get; set; }
+        public string link { get; set; }
+        public string author { get; set; }
+        public string description { get; set; }
+        public string image { get; set; }
     }
 
     public class Item
     {
-        public string Title { get; set; }
-        public string PublishDate { get; set; }
-        public string Link { get; set; }
-        public string Guid { get; set; }
-        public string Author { get; set; }
-        public string Thumbnail { get; set; }
-        public string Description { get; set; }
-        public string Content { get; set; }
-        public object Enclosure { get; set; }
-        public List<string> Categories { get; set; }
+        public string title { get; set; }
+        public string link { get; set; }
+        public string pubDate { get; set; }
+        public string guid { get; set; }
+        public string content { get; set; }
     }
+
+    //public class Item
+    //{
+    //    public string Title { get; set; }
+    //    public string PublishDate { get; set; }
+    //    public string Link { get; set; }
+    //    public string Guid { get; set; }
+    //    public string Author { get; set; }
+    //    public string Thumbnail { get; set; }
+    //    public string Description { get; set; }
+    //    public string Content { get; set; }
+    //    public object Enclosure { get; set; }
+    //    public List<string> Categories { get; set; }
+    //}
 
     public class RssObject
     {
-        public string Status { get; set; }
-        public Feed Feed { get; set; }
-        public List<Item> Items { get; set; }
+        public string status { get; set; }
+        public Feed feed { get; set; }
+        public List<Item> items { get; set; }
     }
 }

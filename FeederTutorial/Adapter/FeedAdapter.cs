@@ -18,15 +18,15 @@ namespace FeederTutorial.Adapter
     public class FeedViewHolder : RecyclerView.ViewHolder, View.IOnClickListener, View.IOnLongClickListener
     {
         public TextView txtTitle;
-        public TextView txtContent;
         public TextView txtPubDate;
+        //public TextView txtContent;
         internal ItemClickListener ItemClickListener { get; set; }
 
         public FeedViewHolder(View itemView) : base(itemView)
         {
             txtTitle = (TextView)itemView.FindViewById(Resource.Id.txtTitle);
             txtPubDate = (TextView)itemView.FindViewById(Resource.Id.txtPubDate);
-            txtContent = (TextView)itemView.FindViewById(Resource.Id.txtContent);
+            //txtContent = (TextView)itemView.FindViewById(Resource.Id.txtContent);
 
             itemView.SetOnClickListener(this);
             itemView.SetOnLongClickListener(this);
@@ -58,14 +58,14 @@ namespace FeederTutorial.Adapter
             inflater = LayoutInflater.From(mContext);
         }
 
-        public override int ItemCount => throw new NotImplementedException();
+        public override int ItemCount => rssObject.items.Count;
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
             FeedViewHolder hh = holder as FeedViewHolder;
-            hh.txtTitle.Text = rssObject.Items[position].Title;
-            hh.txtPubDate.Text = rssObject.Items[position].PublishDate;
-            hh.txtContent.Text = rssObject.Items[position].Content;
+            hh.txtTitle.Text = rssObject.items[position].title;
+            hh.txtPubDate.Text = rssObject.items[position].pubDate;
+            //hh.txtContent.Text = rssObject.Items[position].content;
 
             hh.ItemClickListener = this;
         }
@@ -74,7 +74,7 @@ namespace FeederTutorial.Adapter
         {
             if (!isLongClick)
             {
-                Intent intent = new Intent(Intent.ActionView, Android.Net.Uri.Parse(rssObject.Items[position].Link));
+                Intent intent = new Intent(Intent.ActionView, Android.Net.Uri.Parse(rssObject.items[position].link));
                 mContext.StartActivity(intent);
             }
         }
